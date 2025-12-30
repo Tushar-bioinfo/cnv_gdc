@@ -47,18 +47,18 @@ df['Specimen Type']    =  df['Specimen Type'].apply(lambda x: str(x).split(',')[
 df['full_path'] = bam_dir/df['File Name']
 
 ### Mask to filter to the Normal and Blood ### 
-mask = (
-    (df['Tissue Type'] == 'Normal') &
-    (df['Specimen Type'] == 'Peripheral Blood NOS')
-)
+# mask = (
+#     (df['Tissue Type'] == 'Normal') &
+#     (df['Specimen Type'] == 'Peripheral Blood NOS')
+# )
 
-#mask = (
-#    (df['Tissue Type'] == 'Normal') &
-#    (df['Specimen Type'].isin([
-#        'Peripheral Blood Components NOS',
-#        'Peripheral Blood NOS'
-#    ]))
-#)
+mask = (
+   (df['Tissue Type'] == 'Normal') &
+   (df['Specimen Type'].isin([
+       'Peripheral Blood Components NOS',
+       'Peripheral Blood NOS'
+   ]))
+)
 # make an independent copy so assignments are safe
 df_normal = df.loc[mask, ['Case ID','Project ID','File Name','Sample ID','Tissue Type','Tumor Descriptor','Specimen Type','full_path']].copy()
 
