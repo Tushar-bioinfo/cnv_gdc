@@ -8,7 +8,7 @@
 #SBATCH --output=./logs/out.GDC_SLICE.%j
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=st25@usf.edu
-#SBATCH --array=2-1718%10
+#SBATCH --array=0-394%10
 
 # change this to your base path
 basepath="/work/pi_gblanck/st25/my_work/cnv/tcga-cnv"
@@ -38,8 +38,8 @@ NumberOfBams=$((${#myArray[@]} - 1))
 echo "There are" $NumberOfBams "bam files"
 echo "$InputString"
 InputString=${myArray[$SLURM_ARRAY_TASK_ID]}
-ID=$(cut -d' ' -f1 <<< $InputString)
-NAME=$(cut -d' ' -f2 <<< $InputString)
+ID=$(cut -d',' -f1 <<< $InputString)
+NAME=$(cut -d',' -f2 <<< $InputString)
 
 echo "[$(date)] Working on -> $NAME "
 
