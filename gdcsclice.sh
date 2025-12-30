@@ -43,6 +43,6 @@ NAME=$(cut -d' ' -f2 <<< $InputString)
 
 echo "[$(date)] Working on -> $NAME "
 
-APItext="https://api.gdc.cancer.gov/slicing/view/$ID?region=chr17:39728510-39730532"
+APItext="https://api.gdc.cancer.gov/slicing/view/$ID?region=chr7:56064286-56080670" #Sumf2
 token=$(<$Token)
 curl --header "X-Auth-Token: $token" $APItext --output $OutputFolder/sliced_$NAME
