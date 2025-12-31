@@ -43,6 +43,6 @@ NAME=$(cut -d',' -f2 <<< $InputString)
 
 echo "[$(date)] Working on -> $NAME "
 
-APItext="https://api.gdc.cancer.gov/slicing/view/$ID?region=chr7:56051765-56063989" #CCT6A
+APItext="https://api.gdc.cancer.gov/slicing/view/$ID?region=chr7:56011051-56051604" #PSPH
 token=$(<$Token)
 curl --header "X-Auth-Token: $token" $APItext --output $OutputFolder/sliced_$NAME
