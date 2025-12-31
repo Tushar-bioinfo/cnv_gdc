@@ -43,6 +43,6 @@ NAME=$(cut -d',' -f2 <<< $InputString)
 
 echo "[$(date)] Working on -> $NAME "
 
-APItext="https://api.gdc.cancer.gov/slicing/view/$ID?region=chr7:55951877-55956500" #MRPS17
+APItext="https://api.gdc.cancer.gov/slicing/view/$ID?region=chr7:55019017-55211628" #EGFR
 token=$(<$Token)
 curl --header "X-Auth-Token: $token" $APItext --output $OutputFolder/sliced_$NAME
